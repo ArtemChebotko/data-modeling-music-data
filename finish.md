@@ -7,7 +7,7 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step7"}]'
+ <a href='command:katapod.loadPage?[{"step":"step13"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
 </div>
@@ -22,9 +22,9 @@
         <br/>
         <div class="scenario-objectives">In this scenario, you explored:</div>
         <ul>
-              <li><span class="scenario-objective">Schema design for a sensor data use case</span></li>
-              <li><span class="scenario-objective">Sample sensor data</span></li>
-              <li><span class="scenario-objective">CQL queries over sensor data</span></li>
+              <li><span class="scenario-objective">Schema design for a digital library use case</span></li>
+              <li><span class="scenario-objective">Sample digital library data</span></li>
+              <li><span class="scenario-objective">CQL queries over digital library data</span></li>
         </ul>
         <div class="resources">Learn more about Cassandra on <a href="https://datastax.com/dev" target="_blank">datastax.com/dev</a>:</div>
         <ul>
@@ -38,7 +38,7 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step7"}]'
+ <a href='command:katapod.loadPage?[{"step":"step13"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
 </div>
