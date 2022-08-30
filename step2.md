@@ -102,7 +102,7 @@ CREATE TABLE tracks_by_user (
 
 ✅ Verify that the eight tables have been created:
 ```
-cqlsh -e "DESCRIBE TABLES;"
+cqlsh -k music_data -e "DESCRIBE TABLES;"
 ```
 
 <!-- NAVIGATION -->
