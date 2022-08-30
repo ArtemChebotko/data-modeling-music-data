@@ -18,18 +18,18 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q4</div>
+<div class="step-title">Design query Q3</div>
 
-✅ Find raw measurements for sensor `s1003` on `2020-07-06`; order by timestamp (desc):
+✅ Find an album with title `Magical Mystery Tour` and year `1967`:
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT timestamp, value 
-FROM temperatures_by_sensor
-WHERE sensor = 's1003'
-  AND date   = '2020-07-06';
+SELECT *
+FROM albums_by_title
+WHERE title = 'Magical Mystery Tour'
+  AND year  = 1967;
 ```
 
 </details>

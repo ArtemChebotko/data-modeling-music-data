@@ -18,33 +18,79 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Populate tables</div>
+<div class="step-title">Populate tables using DSBulk</div>
 
-✅ Execute the CQL script to insert sample data:
+✅ Load data into table `performers`:
 ```
-SOURCE 'assets/sensor_data.cql'
-```
-
-✅ Retrieve all rows from table `networks`:
-```
-SELECT * FROM networks;        
-```
-
-✅ Retrieve all rows from table `temperatures_by_network`:
-```
-SELECT network, week, date_hour, 
-       sensor, avg_temperature 
-FROM temperatures_by_network;
+dsbulk load -url assets/performers.csv  \
+            -k music_data               \
+            -t performers               \
+            -header true                \
+            -logDir /tmp/logs
 ```
 
-✅ Retrieve all rows from table `sensors_by_network`:
+✅ Retrieve some rows from table `performers`:
 ```
-SELECT * FROM sensors_by_network;                    
+cqlsh -e "SELECT * FROM music_data.performers LIMIT 10;"      
 ```
 
-✅ Retrieve all rows from table `temperatures_by_sensor`:
+✅ Load data into tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
 ```
-SELECT * FROM temperatures_by_sensor; 
+dsbulk load -url assets/albums.csv      \
+            -k music_data               \
+            -t albums_by_performer      \
+            -header true                \
+            -logDir /tmp/logs
+            
+dsbulk load -url assets/albums.csv      \
+            -k music_data               \
+            -t albums_by_title          \
+            -header true                \
+            -logDir /tmp/logs     
+            
+dsbulk load -url assets/albums.csv      \
+            -k music_data               \
+            -t albums_by_genre          \
+            -header true                \
+            -logDir /tmp/logs                     
+```
+
+✅ Retrieve some rows from tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
+```
+cqlsh -e "SELECT * FROM music_data.albums_by_performer LIMIT 5;"   
+cqlsh -e "SELECT * FROM music_data.albums_by_title LIMIT 5;"   
+cqlsh -e "SELECT * FROM music_data.albums_by_genre LIMIT 5;"                                       
+```
+
+✅ Load data into tables `tracks_by_title` and `tracks_by_album`:
+```
+dsbulk load -url assets/tracks.csv      \
+            -k music_data               \
+            -t tracks_by_title          \
+            -header true                \
+            -m "0=album_title,          \
+                1=album_year,           \
+                2=genre,                \
+                3=number,               \
+                4=title"                \
+            -logDir /tmp/logs
+            
+dsbulk load -url assets/tracks.csv      \
+            -k music_data               \
+            -t tracks_by_album          \
+            -header true                \
+            -m "0=album_title,          \
+                1=album_year,           \
+                2=genre,                \
+                3=number,               \
+                4=title"                \
+            -logDir /tmp/logs
+```
+
+✅ Retrieve some rows from tables `tracks_by_title` and `tracks_by_album`:
+```
+cqlsh -e "SELECT * FROM music_data.tracks_by_title LIMIT 5;"   
+cqlsh -e "SELECT * FROM music_data.tracks_by_album LIMIT 5;"      
 ```
 
 <!-- NAVIGATION -->

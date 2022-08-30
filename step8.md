@@ -20,16 +20,15 @@
 
 <div class="step-title">Design query Q4</div>
 
-✅ Find raw measurements for sensor `s1003` on `2020-07-06`; order by timestamp (desc):
+✅ Find albums with title `20 Greatest Hits`; order by year (desc):
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT timestamp, value 
-FROM temperatures_by_sensor
-WHERE sensor = 's1003'
-  AND date   = '2020-07-06';
+SELECT *
+FROM albums_by_title
+WHERE title = '20 Greatest Hits'; 
 ```
 
 </details>

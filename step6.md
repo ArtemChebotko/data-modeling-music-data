@@ -18,17 +18,17 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q3</div>
+<div class="step-title">Design query Q2</div>
 
-✅ Find information about all sensors in network `forest-net`:
+✅ Find albums of performer `The Beatles`; order by year (desc):
 
 <details>
   <summary>Solution</summary>
 
 ```
 SELECT * 
-FROM sensors_by_network
-WHERE network = 'forest-net';
+FROM albums_by_performer 
+WHERE performer = 'The Beatles';
 ```
 
 </details>

@@ -20,59 +20,89 @@
 
 <div class="step-title">Create tables</div>
 
-✅ Create table `networks`:
+✅ Create tables `performers`, `albums_by_performer`, `albums_by_title`, 
+`albums_by_genre`, `tracks_by_title`, `tracks_by_album`, `users` and `tracks_by_user`:
 ```
-CREATE TABLE IF NOT EXISTS networks (
-  bucket TEXT,
+cqlsh -e "
+
+USE music_data;
+
+CREATE TABLE performers (
   name TEXT,
-  description TEXT,
-  region TEXT,
-  num_sensors INT,
-  PRIMARY KEY ((bucket),name)
+  type TEXT,
+  country TEXT,
+  born INT,
+  died INT,
+  founded INT,
+  PRIMARY KEY ((name))
 );
-```
 
-✅ Create table `temperatures_by_network`:
-```
-CREATE TABLE IF NOT EXISTS temperatures_by_network (
-  network TEXT,
-  week DATE,
-  date_hour TIMESTAMP,
-  sensor TEXT,
-  avg_temperature FLOAT,
-  latitude DECIMAL,
-  longitude DECIMAL,
-  PRIMARY KEY ((network,week),date_hour,sensor)
-) WITH CLUSTERING ORDER BY (date_hour DESC, sensor ASC);
-```
+CREATE TABLE albums_by_performer (
+  performer TEXT,
+  year INT,
+  title TEXT,
+  genre TEXT,
+  PRIMARY KEY ((performer),year,title)
+) WITH CLUSTERING ORDER BY (year DESC, title ASC);
 
-✅ Create table `sensors_by_network`:
-```
-CREATE TABLE IF NOT EXISTS sensors_by_network (
-  network TEXT,
-  sensor TEXT,
-  latitude DECIMAL,
-  longitude DECIMAL,
-  characteristics MAP<TEXT,TEXT>,
-  PRIMARY KEY ((network),sensor)
+CREATE TABLE albums_by_title (
+  title TEXT,
+  year INT,
+  performer TEXT,
+  genre TEXT,
+  PRIMARY KEY ((title),year)
+) WITH CLUSTERING ORDER BY (year DESC);
+
+CREATE TABLE albums_by_genre (
+  genre TEXT,
+  year INT,
+  title TEXT,
+  performer TEXT,
+  PRIMARY KEY ((genre),year,title)
+) WITH CLUSTERING ORDER BY (year DESC, title ASC);
+
+CREATE TABLE tracks_by_title (
+  title TEXT,
+  album_year INT,
+  album_title TEXT,
+  number INT,
+  length INT,
+  genre TEXT,
+  PRIMARY KEY ((title),album_year,album_title,number)
+) WITH CLUSTERING ORDER BY (album_year DESC, album_title ASC, number ASC);
+
+CREATE TABLE tracks_by_album (
+  album_title TEXT,
+  album_year INT,
+  number INT,
+  title TEXT,
+  length INT,
+  genre TEXT STATIC,
+  PRIMARY KEY ((album_title,album_year),number)
 );
-```
 
+CREATE TABLE users (
+  id UUID,
+  name TEXT,
+  PRIMARY KEY ((id))
+);
 
-✅ Create table `temperatures_by_sensor`:
-```
-CREATE TABLE IF NOT EXISTS temperatures_by_sensor (
-  sensor TEXT,
-  date DATE,
+CREATE TABLE tracks_by_user (
+  id UUID,
+  month DATE,
   timestamp TIMESTAMP,
-  value FLOAT,
-  PRIMARY KEY ((sensor,date),timestamp)
-) WITH CLUSTERING ORDER BY (timestamp DESC);
+  album_title TEXT,
+  album_year INT,
+  number INT,
+  title TEXT,
+  length INT,
+  PRIMARY KEY ((id,month),timestamp,album_title,album_year,number)
+) WITH CLUSTERING ORDER BY (timestamp DESC, album_title ASC, album_year ASC, number ASC);"
 ```
 
-✅ Verify that the four tables have been created:
+✅ Verify that the eight tables have been created:
 ```
-DESCRIBE TABLES;
+cqlsh -e "DESCRIBE TABLES;"
 ```
 
 <!-- NAVIGATION -->

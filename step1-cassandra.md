@@ -25,22 +25,14 @@
 ./cassandra
 ```
 
-✅ Start the CQL shell:
+✅ Create the `music_data` keyspace:
 ```
-cqlsh
-```
+cqlsh -e "
 
-✅ Create the `sensor_data` keyspace:
-```
-CREATE KEYSPACE sensor_data
+CREATE KEYSPACE music_data
 WITH replication = {
   'class': 'NetworkTopologyStrategy', 
-  'DC-Houston': 1 };
-```
-
-✅ Set the current working keyspace:
-```
-USE sensor_data;
+  'DC-Houston': 1 };"
 ```
 
 <!-- NAVIGATION -->

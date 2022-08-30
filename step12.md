@@ -18,18 +18,17 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q4</div>
+<div class="step-title">Design query Q8</div>
 
-✅ Find raw measurements for sensor `s1003` on `2020-07-06`; order by timestamp (desc):
+✅ Find a user with id `12345678-aaaa-bbbb-cccc-123456789abc`:
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT timestamp, value 
-FROM temperatures_by_sensor
-WHERE sensor = 's1003'
-  AND date   = '2020-07-06';
+SELECT *
+FROM users
+WHERE id = 12345678-aaaa-bbbb-cccc-123456789abc; 
 ```
 
 </details>
