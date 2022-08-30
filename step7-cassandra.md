@@ -7,38 +7,39 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step5"}]'
+ <a href='command:katapod.loadPage?[{"step":"step6-cassandra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 6 of 13</span>
- <a href='command:katapod.loadPage?[{"step":"step7"}]' 
+<span class="step-count"> Step 7 of 13</span>
+ <a href='command:katapod.loadPage?[{"step":"step8-cassandra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q2</div>
+<div class="step-title">Design query Q3</div>
 
-✅ Find albums of performer `The Beatles`; order by year (desc):
+✅ Find an album with title `Magical Mystery Tour` and year `1967`:
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT * 
-FROM albums_by_performer 
-WHERE performer = 'The Beatles';
+SELECT *
+FROM albums_by_title
+WHERE title = 'Magical Mystery Tour'
+  AND year  = 1967;
 ```
 
 </details>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step5"}]'
+ <a href='command:katapod.loadPage?[{"step":"step6-cassandra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step7"}]'
+ <a href='command:katapod.loadPage?[{"step":"step8-cassandra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

@@ -7,40 +7,40 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"intro"}]'
+ <a href='command:katapod.loadPage?[{"step":"step6-astra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 1 of 13</span>
- <a href='command:katapod.loadPage?[{"step":"step2-cassandra"}]' 
+<span class="step-count"> Step 7 of 13</span>
+ <a href='command:katapod.loadPage?[{"step":"step8-astra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
 
 <!-- CONTENT -->
 
-<div class="step-title">Connect to Cassandra and create a keyspace</div>
+<div class="step-title">Design query Q3</div>
 
-✅ Start Cassandra:
+✅ Find an album with title `Magical Mystery Tour` and year `1967`:
+
+<details>
+  <summary>Solution</summary>
+
 ```
-./cassandra
+SELECT *
+FROM albums_by_title
+WHERE title = 'Magical Mystery Tour'
+  AND year  = 1967;
 ```
 
-✅ Create the `music_data` keyspace:
-```
-cqlsh -e "
-
-CREATE KEYSPACE music_data
-WITH replication = {
-  'class': 'NetworkTopologyStrategy', 
-  'DC-Houston': 1 };"
-```
+</details>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"intro"}]'
+ <a href='command:katapod.loadPage?[{"step":"step6-astra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step2-cassandra"}]'
+ <a href='command:katapod.loadPage?[{"step":"step8-astra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>
+

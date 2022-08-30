@@ -7,39 +7,39 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step6"}]'
+ <a href='command:katapod.loadPage?[{"step":"step12-cassandra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 7 of 13</span>
- <a href='command:katapod.loadPage?[{"step":"step8"}]'
+<span class="step-count"> Step 13 of 13</span>
+ <a href='command:katapod.loadPage?[{"step":"finish-cassandra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q3</div>
+<div class="step-title">Design query Q9</div>
 
-✅ Find an album with title `Magical Mystery Tour` and year `1967`:
+✅ Find all tracks played by a user in `September 2020`; order by timestamp (desc):
 
 <details>
   <summary>Solution</summary>
 
 ```
-SELECT *
-FROM albums_by_title
-WHERE title = 'Magical Mystery Tour'
-  AND year  = 1967;
+SELECT timestamp, album_title, album_year, number, title
+FROM tracks_by_user
+WHERE id = 12345678-aaaa-bbbb-cccc-123456789abc 
+  AND month = '2020-09-01';
 ```
 
 </details>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step6"}]'
+ <a href='command:katapod.loadPage?[{"step":"step12-cassandra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step8"}]'
+ <a href='command:katapod.loadPage?[{"step":"finish-cassandra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

@@ -7,38 +7,38 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step9"}]'
+ <a href='command:katapod.loadPage?[{"step":"step11-cassandra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 10 of 13</span>
- <a href='command:katapod.loadPage?[{"step":"step11"}]'
+<span class="step-count"> Step 12 of 13</span>
+ <a href='command:katapod.loadPage?[{"step":"step13-cassandra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
 
 <!-- CONTENT -->
 
-<div class="step-title">Design query Q6</div>
+<div class="step-title">Design query Q8</div>
 
-✅ Find tracks with title `Let It Be`:
+✅ Find a user with id `12345678-aaaa-bbbb-cccc-123456789abc`:
 
 <details>
   <summary>Solution</summary>
 
 ```
 SELECT *
-FROM tracks_by_title
-WHERE title = 'Let It Be'; 
+FROM users
+WHERE id = 12345678-aaaa-bbbb-cccc-123456789abc; 
 ```
 
 </details>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step9"}]'
+ <a href='command:katapod.loadPage?[{"step":"step11-cassandra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step11"}]'
+ <a href='command:katapod.loadPage?[{"step":"step13-cassandra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

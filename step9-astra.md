@@ -7,11 +7,11 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step8"}]'
+ <a href='command:katapod.loadPage?[{"step":"step8-astra"}]'
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
 <span class="step-count"> Step 9 of 13</span>
- <a href='command:katapod.loadPage?[{"step":"step10"}]'
+ <a href='command:katapod.loadPage?[{"step":"step10-astra"}]'
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
@@ -35,10 +35,10 @@ WHERE genre = 'Classical';
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step8"}]'
+ <a href='command:katapod.loadPage?[{"step":"step8-astra"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step10"}]'
+ <a href='command:katapod.loadPage?[{"step":"step10-astra"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>
