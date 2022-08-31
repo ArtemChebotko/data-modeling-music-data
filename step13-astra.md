@@ -20,7 +20,7 @@
 
 <div class="step-title">Design query Q9</div>
 
-✅ Find all tracks played by a user in `September 2020`; order by timestamp (desc):
+✅ Find all tracks played by the user in `September 2020`; order by timestamp (desc):
 
 <details>
   <summary>Solution</summary>
