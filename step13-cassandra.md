@@ -25,7 +25,7 @@
 <details>
   <summary>Solution</summary>
 
-```
+```sql
 SELECT timestamp, album_title, album_year, number, title
 FROM tracks_by_user
 WHERE id = 12345678-aaaa-bbbb-cccc-123456789abc 
