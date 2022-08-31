@@ -25,7 +25,7 @@
 ```
 astra db cqlsh data-modeling -k music_data -e "
 
-CREATE TABLE performers (
+CREATE TABLE IF NOT EXISTS performers (
   name TEXT,
   type TEXT,
   country TEXT,
@@ -35,7 +35,7 @@ CREATE TABLE performers (
   PRIMARY KEY ((name))
 );
 
-CREATE TABLE albums_by_performer (
+CREATE TABLE IF NOT EXISTS albums_by_performer (
   performer TEXT,
   year INT,
   title TEXT,
@@ -43,7 +43,7 @@ CREATE TABLE albums_by_performer (
   PRIMARY KEY ((performer),year,title)
 ) WITH CLUSTERING ORDER BY (year DESC, title ASC);
 
-CREATE TABLE albums_by_title (
+CREATE TABLE IF NOT EXISTS albums_by_title (
   title TEXT,
   year INT,
   performer TEXT,
@@ -51,7 +51,7 @@ CREATE TABLE albums_by_title (
   PRIMARY KEY ((title),year)
 ) WITH CLUSTERING ORDER BY (year DESC);
 
-CREATE TABLE albums_by_genre (
+CREATE TABLE IF NOT EXISTS albums_by_genre (
   genre TEXT,
   year INT,
   title TEXT,
@@ -59,7 +59,7 @@ CREATE TABLE albums_by_genre (
   PRIMARY KEY ((genre),year,title)
 ) WITH CLUSTERING ORDER BY (year DESC, title ASC);
 
-CREATE TABLE tracks_by_title (
+CREATE TABLE IF NOT EXISTS tracks_by_title (
   title TEXT,
   album_year INT,
   album_title TEXT,
@@ -69,7 +69,7 @@ CREATE TABLE tracks_by_title (
   PRIMARY KEY ((title),album_year,album_title,number)
 ) WITH CLUSTERING ORDER BY (album_year DESC, album_title ASC, number ASC);
 
-CREATE TABLE tracks_by_album (
+CREATE TABLE IF NOT EXISTS tracks_by_album (
   album_title TEXT,
   album_year INT,
   number INT,
@@ -79,13 +79,13 @@ CREATE TABLE tracks_by_album (
   PRIMARY KEY ((album_title,album_year),number)
 );
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id UUID,
   name TEXT,
   PRIMARY KEY ((id))
 );
 
-CREATE TABLE tracks_by_user (
+CREATE TABLE IF NOT EXISTS tracks_by_user (
   id UUID,
   month DATE,
   timestamp TIMESTAMP,
