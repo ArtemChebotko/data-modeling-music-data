@@ -44,19 +44,19 @@ astra db dsbulk data-modeling load      \
             -header true                \
             -logDir /tmp/logs
 
-astra db dsbulk data-modeling load      \            
+astra db dsbulk data-modeling load      \
             -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_title          \
             -header true                \
-            -logDir /tmp/logs     
-            
+            -logDir /tmp/logs
+
 astra db dsbulk data-modeling load      \
             -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_genre          \
             -header true                \
-            -logDir /tmp/logs                     
+            -logDir /tmp/logs
 ```
 
 ✅ Retrieve some rows from tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
@@ -79,7 +79,7 @@ astra db dsbulk data-modeling load      \
                 3=number,               \
                 4=title"                \
             -logDir /tmp/logs
-            
+
 astra db dsbulk data-modeling load      \
             -url assets/tracks.csv      \
             -k music_data               \
