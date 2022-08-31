@@ -41,18 +41,18 @@ dsbulk load -url assets/albums.csv      \
             -t albums_by_performer      \
             -header true                \
             -logDir /tmp/logs
-            
+
 dsbulk load -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_title          \
             -header true                \
-            -logDir /tmp/logs     
-            
+            -logDir /tmp/logs
+
 dsbulk load -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_genre          \
             -header true                \
-            -logDir /tmp/logs                     
+            -logDir /tmp/logs
 ```
 
 ✅ Retrieve some rows from tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
@@ -74,7 +74,7 @@ dsbulk load -url assets/tracks.csv      \
                 3=number,               \
                 4=title"                \
             -logDir /tmp/logs
-            
+
 dsbulk load -url assets/tracks.csv      \
             -k music_data               \
             -t tracks_by_album          \
