@@ -23,9 +23,7 @@
 ✅ Create tables `performers`, `albums_by_performer`, `albums_by_title`, 
 `albums_by_genre`, `tracks_by_title`, `tracks_by_album`, `users` and `tracks_by_user`:
 ```
-cqlsh -e "
-
-USE music_data;
+astra db cqlsh data-modeling -k music_data -e "
 
 CREATE TABLE performers (
   name TEXT,
@@ -102,7 +100,7 @@ CREATE TABLE tracks_by_user (
 
 ✅ Verify that the eight tables have been created:
 ```
-cqlsh -k music_data -e "DESCRIBE TABLES;"
+astra db cqlsh data-modeling -k music_data -e "DESCRIBE TABLES;"
 ```
 
 <!-- NAVIGATION -->

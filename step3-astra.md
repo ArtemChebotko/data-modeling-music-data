@@ -22,7 +22,8 @@
 
 ✅ Load data into table `performers`:
 ```
-dsbulk load -url assets/performers.csv  \
+astra db dsbulk data-modeling load      \
+            -url assets/performers.csv  \
             -k music_data               \
             -t performers               \
             -header true                \
@@ -31,24 +32,27 @@ dsbulk load -url assets/performers.csv  \
 
 ✅ Retrieve some rows from table `performers`:
 ```
-cqlsh -e "SELECT * FROM music_data.performers LIMIT 10;"      
+astra db cqlsh data-modeling -e "SELECT * FROM music_data.performers LIMIT 10;"      
 ```
 
 ✅ Load data into tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
 ```
-dsbulk load -url assets/albums.csv      \
+astra db dsbulk data-modeling load      \
+            -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_performer      \
             -header true                \
             -logDir /tmp/logs
-            
-dsbulk load -url assets/albums.csv      \
+
+astra db dsbulk data-modeling load      \            
+            -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_title          \
             -header true                \
             -logDir /tmp/logs     
             
-dsbulk load -url assets/albums.csv      \
+astra db dsbulk data-modeling load      \
+            -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_genre          \
             -header true                \
@@ -57,14 +61,15 @@ dsbulk load -url assets/albums.csv      \
 
 ✅ Retrieve some rows from tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
 ```
-cqlsh -e "SELECT * FROM music_data.albums_by_performer LIMIT 5;"   
-cqlsh -e "SELECT * FROM music_data.albums_by_title LIMIT 5;"   
-cqlsh -e "SELECT * FROM music_data.albums_by_genre LIMIT 5;"                                       
+astra db cqlsh data-modeling -e "SELECT * FROM music_data.albums_by_performer LIMIT 5;"   
+astra db cqlsh data-modeling -e "SELECT * FROM music_data.albums_by_title LIMIT 5;"   
+astra db cqlsh data-modeling -e "SELECT * FROM music_data.albums_by_genre LIMIT 5;"                                       
 ```
 
 ✅ Load data into tables `tracks_by_title` and `tracks_by_album`:
 ```
-dsbulk load -url assets/tracks.csv      \
+astra db dsbulk data-modeling load      \
+            -url assets/tracks.csv      \
             -k music_data               \
             -t tracks_by_title          \
             -header true                \
@@ -75,7 +80,8 @@ dsbulk load -url assets/tracks.csv      \
                 4=title"                \
             -logDir /tmp/logs
             
-dsbulk load -url assets/tracks.csv      \
+astra db dsbulk data-modeling load      \
+            -url assets/tracks.csv      \
             -k music_data               \
             -t tracks_by_album          \
             -header true                \
@@ -89,8 +95,8 @@ dsbulk load -url assets/tracks.csv      \
 
 ✅ Retrieve some rows from tables `tracks_by_title` and `tracks_by_album`:
 ```
-cqlsh -e "SELECT * FROM music_data.tracks_by_title LIMIT 5;"   
-cqlsh -e "SELECT * FROM music_data.tracks_by_album LIMIT 5;"      
+astra db cqlsh data-modeling -e "SELECT * FROM music_data.tracks_by_title LIMIT 5;"   
+astra db cqlsh data-modeling -e "SELECT * FROM music_data.tracks_by_album LIMIT 5;"      
 ```
 
 <!-- NAVIGATION -->

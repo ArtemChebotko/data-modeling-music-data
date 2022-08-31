@@ -20,9 +20,10 @@
 
 <div class="step-title">Insert rows using the CQL shell</div>
 
-✅ Start the CQL shell:
+✅ Start the CQL shell and connect to database `data-modeling` and keyspace `music_data`:
 ```
-cqlsh -k music_data
+clear
+astra db cqlsh data-modeling -k music_data
 ```
 
 ✅ Insert rows into table `users`:
