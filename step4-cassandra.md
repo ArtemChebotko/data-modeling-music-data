@@ -22,6 +22,7 @@
 
 ✅ Start the CQL shell:
 ```
+clear
 cqlsh -k music_data
 ```
 
