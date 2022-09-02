@@ -41,20 +41,12 @@ astra db list
 
 ✅ Create database `data-modeling` and keyspace `music_data` if they do not exist:
 ```
-astra db create data-modeling -k music_data --if-not-exist
+astra db create data-modeling -k music_data --if-not-exist --wait
 ```
 
-✅ Check the status of database `data-modeling`:
-```
-astra db get data-modeling
-```
+This operation may take a bit longer when creating a new database or resuming an existing hibernated database.
 
-✅ If database `data-modeling` exists and has status `HIBERNATED`, resume the database:
-```
-astra db resume data-modeling
-```
-
-✅ If database `data-modeling` has status `RESUMING`, `MAINTENANCE` or `PENDING`, **wait until the status becomes `ACTIVE`**:
+✅ Verify that database `data-modeling` is `ACTIVE` and keyspace `music_data` exists:
 ```
 astra db get data-modeling
 ```
