@@ -24,7 +24,7 @@
 
 ✅ Load data into table `performers`:
 ```
-astra db dsbulk data-modeling load      \
+astra db load data-modeling             \
             -url assets/performers.csv  \
             -k music_data               \
             -t performers               \
@@ -39,21 +39,21 @@ astra db cqlsh data-modeling -e "SELECT * FROM music_data.performers LIMIT 10;"
 
 ✅ Load data into tables `albums_by_performer`, `albums_by_title` and `albums_by_genre`:
 ```
-astra db dsbulk data-modeling load      \
+astra db load data-modeling             \
             -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_performer      \
             -header true                \
             -logDir /tmp/logs
 
-astra db dsbulk data-modeling load      \
+astra db load data-modeling             \
             -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_title          \
             -header true                \
             -logDir /tmp/logs
 
-astra db dsbulk data-modeling load      \
+astra db load data-modeling             \
             -url assets/albums.csv      \
             -k music_data               \
             -t albums_by_genre          \
@@ -70,7 +70,7 @@ astra db cqlsh data-modeling -e "SELECT * FROM music_data.albums_by_genre LIMIT 
 
 ✅ Load data into tables `tracks_by_title` and `tracks_by_album`:
 ```
-astra db dsbulk data-modeling load      \
+astra db load data-modeling             \
             -url assets/tracks.csv      \
             -k music_data               \
             -t tracks_by_title          \
@@ -82,7 +82,7 @@ astra db dsbulk data-modeling load      \
                 4=title"                \
             -logDir /tmp/logs
 
-astra db dsbulk data-modeling load      \
+astra db load data-modeling             \
             -url assets/tracks.csv      \
             -k music_data               \
             -t tracks_by_album          \
